@@ -33,6 +33,9 @@ namespace ContosoUniversity
             services.AddDbContext<SchoolContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            //services.AddDbContext<SchoolContext>(options => 
+            //    options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddAutoMapper(typeof(Startup));
 
             services.AddMediatR(typeof(Startup));
@@ -58,6 +61,8 @@ namespace ContosoUniversity
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+
             app.UseMiniProfiler();
 
             if (env.IsDevelopment())
